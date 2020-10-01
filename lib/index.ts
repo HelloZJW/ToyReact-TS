@@ -1,16 +1,37 @@
-function createElement(tagName: any, props: any, ...children: any[]) {
-    let element = document.createElement(tagName);
-    for (let child of children) {
-        if (typeof child === 'string') {
-            child = document.createTextNode(child);
-        }
-        element.appendChild(child);
-    }
-    return element;
+import {VNode} from "./vnode";
+
+function render(vnode: VNode, container: HTMLElement) {
+    container.innerHTML = '';
+    _render(vnode, container);
 }
 
-function render(element: any) {
-    document.body.append(element);
+function _render(vnode: VNode, container: HTMLElement) {
+    if (typeof vnode === 'string') {
+        const textNode = document.createTextNode(vnode);
+        return container.appendChild(textNode);
+    }
+
+    let element = document.createElement(vnode.tagName);
+    for (const name in vnode.properties) {
+        setAttribute(element, name, vnode.properties[name]);
+    }
+
+    vnode.children.forEach(child => _render(child, element));
+
+    return container.appendChild(element);
+}
+
+function setAttribute(dom: HTMLElement, name: string, value: any) {
+    if (name === 'className') name = 'class';
+    if (value) {
+        dom.setAttribute(name, value);
+    } else {
+        dom.removeAttribute(name);
+    }
+}
+
+function createElement(tagName: any, properties: any, ...children: any[]) {
+    return new VNode(tagName, properties, children);
 }
 
 export const ToyReact = {

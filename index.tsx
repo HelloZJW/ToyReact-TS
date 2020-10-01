@@ -1,10 +1,8 @@
 import { ToyReact } from "./lib/index";
 
 let a = <div>
-    <span>Hello, </span>
-    <span>World </span>
+    <span className="red">Hello, </span>
+    <span className="blue">World </span>
     !
 </div>;
-
-ToyReact.render(a);
-
+ToyReact.render(a, document.body);
