@@ -1,0 +1,31 @@
+{
+  "name": "toyreact-ts",
+  "version": "1.0.0",
+  "description": "a toy react created by typescript",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HelloZJW/ToyReact-TS.git"
+  },
+  "author": "HelloZJW",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HelloZJW/ToyReact-TS/issues"
+  },
+  "homepage": "https://github.com/HelloZJW/ToyReact-TS#readme",
+  "devDependencies": {
+    "@babel/core": "^7.11.0",
+    "@babel/preset-env": "^7.11.0",
+    "@babel/preset-react": "^7.10.4",
+    "@babel/preset-typescript": "^7.10.4",
+    "babel-loader": "^8.1.0",
+    "ts-loader": "^8.0.1",
+    "typescript": "^3.9.7",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
+  }
+}
